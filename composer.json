@@ -18,6 +18,5 @@
 		"meenie/javascript-packer": "Keep track of the Packer PHP port using Composer"
 	},
 
-	"minimum-stability": "beta",
-	"version": "0.1"
+	"minimum-stability": "beta"
 }
