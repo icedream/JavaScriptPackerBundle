@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>  
+<container xmlns="http://symfony.com/schema/dic/services"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="icedream.javascript_packer.filter.class">Icedream\JavaScriptPackerBundle\Assetic\Filter\JavaScriptPackerFilter</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="icedream.javascript_packer.filter" class="%icedream.javascript_packer.filter.class%">
+            <tag name="assetic.filter" alias="jspacker" />
+            <argument>%assetic.filter.jspacker.packer%</argument>
+            <argument>%assetic.filter.jspacker.encoding%</argument>
+            <argument>%assetic.filter.jspacker.fastdecode%</argument>
+            <argument>%assetic.filter.jspacker.specialchars%</argument>
+        </service>
+
+    </services>
+
+</container> 

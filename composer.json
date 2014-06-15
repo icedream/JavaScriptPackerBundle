@@ -1,0 +1,17 @@
+{
+	"name": "icedream/javascriptpackerbundle",
+	"description": "Dean Edwards Packer, usable from Symfony2",
+	"license": "MIT",
+
+	"autoload": {
+		"psr-0": {
+			"Icedream\\JavaScriptPackerBundle": ""
+		}
+	},
+
+	"target-dir": "Icedream/JavaScriptPackerBundle",
+
+	"require": {
+		"kriswallsmith/assetic": ">=1.1"
+	}
+}
