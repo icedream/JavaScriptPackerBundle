@@ -25,16 +25,12 @@ use Assetic\Filter\FilterInterface;
 class JavaScriptPackerFilter : FilterInterface
 {
 	private $_packerScriptPath;
-	private $_encoding;
-	private $_fastDecode;
-	private $_specialChar;
+	private $_encoding = 62;
+	private $_fastDecode = true;
+	private $_specialChar = false;
 
-	public function __construct($packerScriptPath, $encoding = 62, $fastDecode = true, $specialChar = false)
+	public function setEncoding($encoding)
 	{
-		if (empty($packerScriptPath))
-			throw new FilterException("Packer script path must be set.");
-
-		$this->_packerScriptPath = $packerScriptPath;
 		switch ($encoding)
 		{
 			case null:
@@ -58,8 +54,24 @@ class JavaScriptPackerFilter : FilterInterface
 				$this->_encoding = $encoding;
 				break;
 		}
-		$this->_fastDecode = $fastDecode;
+	}
+
+	public function setSpecialChars($specialChars)
+	{
 		$this->_specialChar = $specialChar;
+	}
+
+	public function setFastDecode($fastDecode)
+	{
+		$this->_fastDecode = $fastDecode;
+	}
+
+	public function __construct($packerScriptPath)
+	{
+		if (empty($packerScriptPath))
+			throw new FilterException("Packer script path must be set.");
+
+		$this->_packerScriptPath = $packerScriptPath;
 	}
 
 	public function filterLoad(AssetInterface $asset)

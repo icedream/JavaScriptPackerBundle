@@ -12,9 +12,9 @@
         <service id="icedream.javascript_packer.filter" class="%icedream.javascript_packer.filter.class%">
             <tag name="assetic.filter" alias="jspacker" />
             <argument>%assetic.filter.jspacker.packer%</argument>
-            <argument>%assetic.filter.jspacker.encoding%</argument>
-            <argument>%assetic.filter.jspacker.fastdecode%</argument>
-            <argument>%assetic.filter.jspacker.specialchars%</argument>
+            <call method="setEncoding">%assetic.filter.jspacker.encoding%</call>
+            <call method="setFastDecode">%assetic.filter.jspacker.fastdecode%</call>
+            <call method="setSpecialChars">%assetic.filter.jspacker.specialchars%</call>
         </service>
 
     </services>
