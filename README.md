@@ -47,7 +47,7 @@ Feel free to use this bundle but keep in mind it is still in beta stage and need
 	assetic:
 	    filters:
 	        jspacker:
-	            resource: %kernel.root_dir%/../src/Icedream/JavaScriptPackerBundle/Resources/config/services.xml
+	            resource: %kernel.root_dir%/../vendor/icedream/javascriptpackerbundle/Icedream/JavaScriptPackerBundle/Resources/config/services.xml
 	            # If you did not use the composer method to download the Packer script, uncomment this and point the variable to the full path of class.JavaScriptPacker.php
 	            #packer: %kernel.root_dir%/../vendor/meenie/javascript-packer/class.JavaScriptPacker.php
 	```
