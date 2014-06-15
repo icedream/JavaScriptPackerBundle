@@ -11,7 +11,7 @@ Feel free to use this bundle but keep in mind it is still in beta stage and need
 1.	Install via composer:
 
 	```shell
-	composer require icedream/javascriptpackerbundle:~0.1@beta
+	composer require icedream/javascriptpackerbundle:~1.0@beta
 	```
 
 2.	Download the PHP port of Dean Edward's packer. The recommended way is to use the suggestion of this package and install `meenie/javascript-packer` via composer.
