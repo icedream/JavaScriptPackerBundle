@@ -4,12 +4,12 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="icedream.javascript_packer.filter.class">Icedream\JavaScriptPackerBundle\Assetic\Filter\JavaScriptPackerFilter</parameter>
+        <parameter key="assetic.filter.jspacker.class">Icedream\JavaScriptPackerBundle\Assetic\Filter\JavaScriptPackerFilter</parameter>
     </parameters>
 
     <services>
 
-        <service id="icedream.javascript_packer.filter" class="%icedream.javascript_packer.filter.class%">
+        <service id="assetic.filter.jspacker" class="%assetic.filter.jspacker.class%">
             <tag name="assetic.filter" alias="jspacker" />
             <argument>%assetic.filter.jspacker.packer%</argument>
             <call method="setEncoding">%assetic.filter.jspacker.encoding%</call>
