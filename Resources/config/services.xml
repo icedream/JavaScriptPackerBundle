@@ -5,6 +5,10 @@
 
     <parameters>
         <parameter key="assetic.filter.jspacker.class">Icedream\JavaScriptPackerBundle\Assetic\Filter\JavaScriptPackerFilter</parameter>
+        <parameter key="assetic.filter.jspacker.packer">%kernel.root_dir%/../vendor/meenie/javascript-packer/class.JavaScriptPacker.php</parameter>
+        <parameter key="assetic.filter.jspacker.encoding">62</parameter>
+        <parameter key="assetic.filter.jspacker.fastdecode">true</parameter>
+        <parameter key="assetic.filter.jspacker.specialchars">false</parameter>
     </parameters>
 
     <services>
@@ -12,9 +16,9 @@
         <service id="assetic.filter.jspacker" class="%assetic.filter.jspacker.class%">
             <tag name="assetic.filter" alias="jspacker" />
             <argument>%assetic.filter.jspacker.packer%</argument>
-            <call method="setEncoding">%assetic.filter.jspacker.encoding%</call>
-            <call method="setFastDecode">%assetic.filter.jspacker.fastdecode%</call>
-            <call method="setSpecialChars">%assetic.filter.jspacker.specialchars%</call>
+            <call method="setEncoding"><argument>%assetic.filter.jspacker.encoding%</argument></call>
+            <call method="setFastDecode"><argument>%assetic.filter.jspacker.fastdecode%</argument></call>
+            <call method="setSpecialChars"><argument>%assetic.filter.jspacker.specialchars%</argument></call>
         </service>
 
     </services>

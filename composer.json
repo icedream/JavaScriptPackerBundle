@@ -13,5 +13,8 @@
 
 	"require": {
 		"kriswallsmith/assetic": ">=1.1"
-	}
+	},
+
+	"minimum-stability": "beta",
+	"version": "0.1"
 }

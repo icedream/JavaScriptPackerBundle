@@ -22,12 +22,12 @@ use Assetic\Filter\FilterInterface;
  * This filter can compress JavaScript files using Nicolas Martin's PHP port
  * of Dean Edward's Packer.
  */
-class JavaScriptPackerFilter : FilterInterface
+class JavaScriptPackerFilter implements FilterInterface
 {
 	private $_packerScriptPath;
 	private $_encoding = 62;
 	private $_fastDecode = true;
-	private $_specialChar = false;
+	private $_specialChars = false;
 
 	public function setEncoding($encoding)
 	{
@@ -51,14 +51,14 @@ class JavaScriptPackerFilter : FilterInterface
 				$this->_encoding = 95;
 				break;
 			default:
-				$this->_encoding = $encoding;
+				$this->_encoding = intval($encoding);
 				break;
 		}
 	}
 
 	public function setSpecialChars($specialChars)
 	{
-		$this->_specialChar = $specialChar;
+		$this->_specialChars = $specialChars;
 	}
 
 	public function setFastDecode($fastDecode)
@@ -76,25 +76,15 @@ class JavaScriptPackerFilter : FilterInterface
 
 	public function filterLoad(AssetInterface $asset)
 	{
-		if (empty($this->_packerScriptPath))
-			throw new FilterException("Packer script path must be set.");
-
-		require_once $this->_packerScriptPath;
+		require_once($this->_packerScriptPath);
 	}
 
 	public function filterDump(AssetInterface $asset)
 	{
-		$script = new JavaScriptPacker(
-			$asset->getContent(),
-			$encoding,
-			$fast_decode,
-			$special_char;
-
-		$asset->setContent(
-			new JavaScriptPacker(
-				$asset->getContent(),
-				$encoding,
-				$fast_decode,
-				$special_char));
+		$script = $asset->getContent();
+		
+		$packer = new \JavaScriptPacker($script, $this->_encoding, $this->_fastDecode, $this->_specialChars);
+		$script = $packer->pack();
+		$asset->setContent(str_replace(";;", ";", trim($script) . ";"));
 	}
 }
