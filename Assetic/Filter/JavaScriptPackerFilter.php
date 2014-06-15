@@ -9,7 +9,6 @@
  *
  * @author Carl Kittelberger <icedream2k9@die-optimisten.net>
  * @license MIT
- * @version 1.0
  */
 
 namespace Icedream\JavaScriptPackerBundle\Assetic\Filter;
